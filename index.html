@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PBM Connect: Roles, Pilares y Acciones</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Opcional: Añadir Font Awesome para iconos (requiere registro o CDN) -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> -->
+</head>
+<body>
+    <div class="game-container">
+        <h1>PBM Connect: Roles, Pilares y Acciones</h1>
+
+        <div id="score-area">
+            Puntuación: <span id="score">0</span>
+        </div>
+
+        <div id="activity-area">
+            <h2>Actividad:</h2>
+            <p id="activity-text">Cargando actividad...</p>
+        </div>
+
+        <div id="selection-area">
+            <div class="buttons-section">
+                <h3>Selecciona el Rol:</h3>
+                <div id="role-buttons">
+                    <!-- Los botones de rol se generarán aquí por JavaScript -->
+                </div>
+            </div>
+            <div class="buttons-section">
+                <h3>Selecciona el Pilar:</h3>
+                <div id="pillar-buttons">
+                    <!-- Los botones de pilar se generarán aquí por JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <div id="feedback-area">
+            <p id="feedback"></p>
+        </div>
+
+        <button id="next-button" class="interactive-button" style="display: none;">Siguiente Actividad</button>
+
+        <div id="results-area" style="display: none;">
+            <h2>¡Juego Terminado!</h2>
+            <p>Tu puntuación final es: <strong id="final-score"></strong> de <span id="total-activities"></span></p>
+            <h3>Respuestas Incorrectas:</h3>
+            <ul id="incorrect-answers-list">
+                <!-- Lista de respuestas incorrectas -->
+            </ul>
+            <button onclick="location.reload()" class="interactive-button">Jugar de Nuevo</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

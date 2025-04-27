@@ -1,0 +1,241 @@
+/* Estilos generales */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    /* Gradiente de fondo moderno */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box; /* Asegura que el padding no aumente el tamaño total */
+}
+
+/* Contenedor centrado */
+.game-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semi-transparente */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 800px; /* Ancho máximo del contenedor */
+    width: 100%; /* Ocupa el ancho disponible hasta el máximo */
+}
+
+h1 {
+    color: #4a4a4a;
+    margin-bottom: 20px;
+}
+
+h2, h3 {
+    color: #5a5a5a;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#score-area {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#activity-area {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    min-height: 80px; /* Altura mínima para evitar saltos */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#activity-text {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #444;
+}
+
+#selection-area {
+    display: flex;
+    justify-content: space-around; /* Espacio entre secciones de botones */
+    flex-wrap: wrap; /* Permite que las secciones se apilen en pantallas pequeñas */
+    margin-bottom: 20px;
+}
+
+.buttons-section {
+    margin: 10px;
+    flex-basis: 45%; /* Intenta que cada sección ocupe casi la mitad */
+    min-width: 250px; /* Ancho mínimo para cada sección */
+}
+
+#role-buttons button,
+#pillar-buttons button {
+    display: block; /* Un botón por línea */
+    width: 100%; /* Ocupa todo el ancho de su contenedor */
+    padding: 12px 15px;
+    margin: 8px 0; /* Espacio vertical entre botones */
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease; /* Transición suave */
+}
+
+/* Colores específicos para roles */
+.role-hemoterapia { background-color: #007bff; } /* Azul */
+.role-hematologia { background-color: #28a745; } /* Verde */
+.role-anestesia { background-color: #dc3545; } /* Rojo */
+.role-perfusionista { background-color: #ffc107; color: #333; } /* Amarillo (ajustar color de texto si es necesario) */
+.role-tecnico { background-color: #6f42c1; } /* Púrpura */
+
+/* Colores específicos para pilares */
+.pillar-1 { background-color: #17a2b8; } /* Cyan */
+.pillar-2 { background-color: #fd7e14; } /* Naranja */
+.pillar-3 { background-color: #6c757d; } /* Gris */
+
+/* Efecto hover general para botones de selección */
+#role-buttons button:hover:not(:disabled),
+#pillar-buttons button:hover:not(:disabled) {
+    transform: translateY(-2px); /* Levanta ligeramente el botón */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Estilo para botones seleccionados */
+button.selected {
+    outline: 3px solid #0056b3; /* Borde azul oscuro para destacar selección */
+    box-shadow: 0 0 10px rgba(0, 86, 179, 0.5); /* Sombra azul */
+    transform: scale(1.02); /* Ligeramente más grande */
+}
+
+/* Estilo para botones deshabilitados */
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+/* Botón interactivo (Siguiente/Jugar de Nuevo) */
+.interactive-button {
+    padding: 12px 25px;
+    font-size: 1.1em;
+    color: white;
+    background-color: #5a67d8;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 20px;
+}
+
+.interactive-button:hover {
+    background-color: #434190; /* Color más oscuro al pasar el cursor */
+    transform: scale(1.05); /* Ligeramente más grande */
+}
+
+/* Área de Feedback */
+#feedback-area {
+    margin-top: 20px;
+    min-height: 30px; /* Evita saltos de layout */
+}
+
+#feedback {
+    font-size: 1.3em;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block; /* Para que el fondo se ajuste al texto */
+}
+
+.correct { color: white; background-color: #28a745; } /* Verde */
+.incorrect { color: white; background-color: #dc3545; } /* Rojo */
+.partial { color: white; background-color: #007bff; } /* Azul */
+
+
+/* Área de Resultados */
+#results-area {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #e9ecef;
+    border-radius: 8px;
+    text-align: left; /* Alinea el texto a la izquierda dentro del área */
+}
+#results-area h2, #results-area p {
+    text-align: center; /* Centra el título y la puntuación */
+}
+
+#incorrect-answers-list {
+    list-style: none;
+    padding: 0;
+    max-height: 300px; /* Altura máxima con scroll si hay muchos errores */
+    overflow-y: auto; /* Añade scroll vertical si es necesario */
+    margin-top: 15px;
+    border: 1px solid #ccc;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+#incorrect-answers-list li {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #ddd;
+    font-size: 0.95em;
+    line-height: 1.5;
+}
+#incorrect-answers-list li:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+#incorrect-answers-list strong {
+    color: #333;
+}
+
+
+/* Mejoras responsivas */
+@media (max-width: 700px) {
+    .game-container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.6em;
+    }
+
+    #selection-area {
+        flex-direction: column; /* Apila las secciones de botones */
+        align-items: stretch; /* Hace que las secciones ocupen el ancho */
+    }
+
+    .buttons-section {
+        flex-basis: auto; /* Ancho automático */
+        width: 100%; /* Ocupa todo el ancho disponible */
+        margin: 10px 0; /* Ajusta margen vertical */
+    }
+     .buttons-section h3 {
+        margin-bottom: 5px;
+     }
+
+    #role-buttons button,
+    #pillar-buttons button {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+
+    .interactive-button {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+     #feedback {
+        font-size: 1.1em;
+     }
+}
